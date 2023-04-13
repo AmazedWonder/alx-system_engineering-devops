@@ -1,2 +1,2 @@
 #!/bin/bash
-git ls-files -al .
+ls -la ..
