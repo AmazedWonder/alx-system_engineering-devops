@@ -1,2 +1,2 @@
 #!/bin/bash
-grep --count -s 'bin' /etc/passwd | wc -l
+grep -c -s 'bin' /etc/passwd | wc -l
