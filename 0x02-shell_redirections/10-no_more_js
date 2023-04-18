@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.js" -exec rm {} \;
+grep -rlZ --include='*.js' '' . | xargs -0 rm --
