@@ -1,0 +1,2 @@
+#!/bin/bash
+cut -f1 | printf '%s\t%s\n' | sort -rnk2 | head -n11 | cut -f1
