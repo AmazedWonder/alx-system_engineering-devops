@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -da1
+find . -empty -printf "%P\n"
