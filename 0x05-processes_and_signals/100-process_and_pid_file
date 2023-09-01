@@ -36,7 +36,7 @@ trap 'echo "I hate the kill command"; exit 0' SIGTERM
 trap 'echo "Y U no love me?!";' SIGINT
 
 # Trap SIGQUIT signal
-trap 'echo "Y U no love me?!"; rm "$pid_f"; exit 0' SIGQUIT
+trap 'rm "$pid_f"; exit 0' SIGQUIT
 
 while true; do
   echo "To infinity and beyond"
