@@ -7,32 +7,18 @@
 #   Deletes the file /var/run/myscript.pid and terminates upon
 #+  receiving a SIGQUIT or SIGTERM.
 
-#terminator() {
-#  rm /var/run/myscript.pid
- # exit
-#}
+terminator() {
+  rm /var/run/myscript.pid
+  exit 0
+}
 
-#echo "$$" > /var/run/myscript.pid
+echo "$$" > /var/run/myscript.pid
 
-#while true
-#do
-#  echo "To infinity and beyond"
-#  sleep 2
-#  trap 'echo "Y U no love me?!"' SIGINT
-#  trap 'echo "I hate the kill command" && terminator' SIGTERM
-#  trap 'terminator' SIGQUIT
-#done
-
-
-pid_f="/var/run/myscript.pid"
-
-# Create the PID file
-echo $$ > "$pid_f"
-
-while true; do
+while true
+do
   echo "To infinity and beyond"
   sleep 2
-  trap 'echo "Y U no love me?!";' SIGINT
-  trap 'echo "I hate the kill command"; exit 0' SIGTERM
-  trap 'rm "$pid_f"; exit 0' SIGQUIT
+  trap 'echo "Y U no love me?!"' SIGINT
+  trap 'echo "I hate the kill command" && terminator' SIGTERM
+  trap 'terminator' SIGQUIT
 done
