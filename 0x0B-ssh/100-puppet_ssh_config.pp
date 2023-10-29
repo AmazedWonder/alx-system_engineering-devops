@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+# !/usr/bin/pup
 # using Puppet to make changes to configuration file
 
 file { '/etc/ssh/sshd_config':
-  ensure  => present,
+  ensure => present,
 }
 
 file_line { 'Turn off passwd auth':
@@ -14,9 +14,5 @@ file_line { 'Turn off passwd auth':
 file_line { 'Declare identity file':
   path  => '/etc/ssh/sshd_config',
   line  => 'IdentityFile ~/.ssh/school',
-  match => '#IdentityFile',
+  match => '^#IdentityFile',
 }
-#file { '/etcssh/config':
-  #ensure  => present,
-  #content => "IdentityFile ~/.ssh/school\nPasswordAuthentication no\n",
-#}
