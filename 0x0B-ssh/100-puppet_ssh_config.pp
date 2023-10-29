@@ -1,17 +1,22 @@
 # /usr/bin/pup
 # using Puppet to make changes to configuration file
-file { 'Turn off passwd auth':
-  path    => '/etc/ssh/sshd_config',
+
+file { '/etc/ssh/sshd_config':
   ensure  => present,
-  content => "PasswordAuthentication no\n",
 }
 
-file { 'Declare identity file':
-  path    => '/home/wonder/.ssh/config',
-  ensure  => present,
-  content => "IdentityFile ~/.ssh/school\n",
+file_line { 'Turn off passwd auth':
+  path    => '/etc/ssh/sshd_config',
+  line    => 'PasswordAuthentication no'
+  match   => '#PasswordAuthentication',
 }
-#file { '/home/wonder/.ssh/config':
+
+file_line { 'Declare identity file':
+  path    => '/etc/ssh/sshd_config',
+  line    => 'IdentityFile ~/.ssh/school',
+  match   => '#IdentityFile',
+}
+#file { '/etcssh/config':
   #ensure  => present,
   #content => "IdentityFile ~/.ssh/school\nPasswordAuthentication no\n",
 #}
