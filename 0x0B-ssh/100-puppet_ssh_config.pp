@@ -1,4 +1,4 @@
-# /usr/bin/pup
+#!/usr/bin/pup
 # using Puppet to make changes to configuration file
 
 file { '/etc/ssh/sshd_config':
@@ -7,7 +7,7 @@ file { '/etc/ssh/sshd_config':
 
 file_line { 'Turn off passwd auth':
   path    => '/etc/ssh/sshd_config',
-  line    => 'PasswordAuthentication no'
+  line    => 'PasswordAuthentication no',
   match   => '#PasswordAuthentication',
 }
 
