@@ -1,4 +1,4 @@
-#!/usr/bin/pup
+#!/usr/bin/env bash
 # using Puppet to make changes to configuration file
 
 file { '/etc/ssh/sshd_config':
