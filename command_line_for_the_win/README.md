@@ -7,8 +7,8 @@ References :
 [SFTP Guide](https://intranet.alxswe.com/rltoken/OwMT_ctWdMI7L6JFzLvVKQ)
 [SFTP File Transfer Tutorial](https://intranet.alxswe.com/rltoken/aTKBzKWZ5EI-qZjJVblUzg)
 
-In this project I create a screenshot, showing that you completed the required levels [CMD Challenge](https://intranet.alxswe.com/rltoken/a83_NOBEtXgFr1Yqej0HYA)
-Used the SFTP (Secure File Transfer Protocol) command-line tool to move local screenshots to the sandbox environment.
+In this project I create a screenshot, showing that I completed the required levels [CMD Challenge](https://intranet.alxswe.com/rltoken/a83_NOBEtXgFr1Yqej0HYA)
+Used the SFTP (Secure File Transfer Protocol) command-line tool in my local machine e.g git, to move local screenshots to the sandbox environment.
 To performed the file transfer using SFTP;
 Here are the steps to follow:
 
@@ -19,6 +19,17 @@ Once connected, navigate to the directory where you want to upload the screensho
 Use the SFTP put command to upload the screenshots from your local machine to the sandbox environment.
 Confirm that the screenshots have been successfully transferred by checking the sandbox directory.
 Once the screenshots are transferred, you can proceed to push the screenshots to GitHub as mentioned in the initial requirements.
+
+Example:
+use ssh host@username, then input password  from ubuntu sandbox provided eg.
+$ ssh host@username
+this is to confirm your server is working. if it is, type exit to exit.
+then:
+$ sftp host@username
+sftp> ls
+sftp> cd /path/to/destination/directory e.g alx-system_engineering-devops/
+sftp> cd command_line_for_the_win/
+sftp> put /path/to/local/Pictures/0-first_9_tasks.jpg e.g /c/Users/hp/Pictures/0-first_9_tasks.jpg
 
 ###Tasks
 
