@@ -31,6 +31,7 @@ echo "Ceci n'est pas une page" | sudo tee /etc/nginx/html/404.html
 
 # Display script completion message
 echo "Nginx installation and configuration completed."
+echo "Custom 404 page content: $(cat /etc/nginx/html/404.html)"
 
 # Create a configuration file for the redirection
 echo "server {
