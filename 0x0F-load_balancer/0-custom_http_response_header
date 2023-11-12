@@ -15,7 +15,8 @@ sudo ufw allow 'Nginx HTTP'
 # Allow incoming HTTP traffic through the UFW firewall.
 # This line opens port 80, which is the default port for HTTP traffic.
 
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+#echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.html
 # Create an `index.nginx-debian.html` file in the `/var/www/html` directory
 # and write the text "Hello World!" into it.
 # This file will be served as the default landing page by Nginx.
