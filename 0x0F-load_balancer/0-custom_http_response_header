@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
-# Update pkg list add a custom Nginx response header
-
-server_name=$(hostname)
-# Allow incoming HTTP traffic through the UFW firewall.
-# This line opens port 80, which is the default port for HTTP traffic.
+# Configure Nginx so that it's HTTP response contains a custome header (on web-01 and web-02)
+# The name of the custom HTTP header must be X-Served-By
+# The value of the custom HTTP header must be the hostname of the server Nginx is running on
 
 sudo apt-get update -y
 sudo apt-get install nginx -y
@@ -15,18 +13,28 @@ sudo ufw allow 'Nginx HTTP'
 # Allow incoming HTTP traffic through the UFW firewall.
 # This line opens port 80, which is the default port for HTTP traffic.
 
+# change permissions to allow us to easily create files in this directory
+sudo chmod -R 755 /var/www
+
 #echo "Hello World!" > /var/www/html/index.nginx-debian.html
-echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html
 # Create an `index.nginx-debian.html` file in the `/var/www/html` directory
 # and write the text "Hello World!" into it.
 # This file will be served as the default landing page by Nginx.
 
-echo "Ceci n'est pas une error_page" > /usr/share/nginx/html/custom_404.html
+#echo "Ceci n'est pas une error_page" > /usr/share/nginx/html/custom_404.html
 # Create a `custom_404.html` file in the `/usr/share/nginx/html` directory
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+# Create a `custom_404.html` file in the `/var/www/html` directory
 # and write the text "Ceci n'est pas une error_page" into it.
 # This file will be used as a custom 404 error page.
 
-echo "server {
+server_name=$(hostname)
+# Allow incoming HTTP traffic through the UFW firewall.
+# This line opens port 80, which is the default port for HTTP traffic.
+
+SERVER_CONFIG=\
+"server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
@@ -54,9 +62,10 @@ echo "server {
     }
 
     add_header X-Served-By $server_name;
-	
-}
-" > /etc/nginx/sites-enabled/default
+
+}"
+#> /etc/nginx/sites-enabled/default
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 # Write the Nginx server configuration to
 # the `/etc/nginx/sites-enabled/default` file.
 # This configuration sets Nginx to listen on port 80,
@@ -67,5 +76,5 @@ echo "server {
 # block for redirecting requests to `/redirect_me`, and adds an
 # `X-Served-By` header with the value of the `server_name` variable.
 
-sudo systemctl restart nginx
+sudo service nginx restart
 # Restart the Nginx service to apply the new configuration.
