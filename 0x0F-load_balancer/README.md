@@ -22,6 +22,7 @@ For this project, I wrote Bash scripts to automate my work. All scripts are desi
 | ---- | ---- |
 | 0. Double the number of webservers | [0-custom_http_response_header](./0-custom_http_response_header) |
 | 1. Install your load balancer | [1-install_load_balancer](./1-install_load_balancer) |
+| 2. Add a custom HTTP header with Puppet | [2-puppet_custom_http_response_header.pp](./2-puppet_custom_http_response_header.pp)
 
 0. Double the number of webservers
 Configured web-02 to be identical to web-01.
@@ -82,3 +83,10 @@ X-Served-By: 03-web-02
 Accept-Ranges: bytes
 
 sylvain@ubuntu$
+
+2. Add a custom HTTP header with Puppet
+Just as in task #0, I automated the task of creating a custom HTTP header response, but with Puppet.
+
+The name of the custom HTTP header is X-Served-By
+The value of the custom HTTP header is the hostname of the server Nginx is running on
+Wrote 2-puppet_custom_http_response_header.pp so that it configures a brand new Ubuntu machine to the requirements in this task
