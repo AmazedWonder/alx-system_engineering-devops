@@ -22,4 +22,4 @@ A postmortem is a tool widely used in the tech industry. After any outage, the t
 | Task | File | Link |
 | ---- | ---- | ---- |
 | 0. My first postmortem | [README.md](./README.md) | [My First Postmoterm](https://docs.google.com/document/d/1DkUi9gLBFt-H-w6WKJfCwdWMVDGZn4_Q5DHcEbBBfrs/edit?usp=sharing) |
-| 1. Make people want to read your postmortem | [README.md](./README.md) | [My Second Postmoterm]() |
+| 1. Make people want to read your postmortem | [README.md](./README.md) | [My Second Postmoterm](https://medium.com/@giftedwonda/postmortem-web-stack-outage-77038556f337) |
