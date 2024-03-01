@@ -57,5 +57,3 @@ root@e514b399d69d:~# curl -s 127.0.0.1:80 | grep Holberton
                             <h1 class="site-title"><a href="http://127.0.0.1/" rel="home">Holberton</a></h1>
         <p>Yet another bug by a Holberton student</p>
 root@e514b399d69d:~#
-
-
