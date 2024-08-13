@@ -30,4 +30,10 @@ If not a valid subreddit, return 0.|
 |1. Top Ten| [1-top_ten.py](./1-top_ten.py) | Write a function that queries the Reddit API and prints the titles of the first 10 hot posts listed for a given subreddit.|
 | 2. Recurse it! | [2-recurse.py](./2-recurse.py) | a recursive function that queries the Reddit API and returns a list containing the titles of all hot articles for a given subreddit. If no results are found for the given subreddit, the function should return None. |
 
+#Usage
+Run file as follows:
 
+wintermancer@lapbox ~/reddit_api/project $ python3 0-main.py programming
+756024
+wintermancer@lapbox ~/reddit_api/project $ python3 0-main.py this_is_a_fake_subreddit
+0
