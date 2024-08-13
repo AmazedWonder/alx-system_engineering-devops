@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Function queries subscribers on a given Reddit subreddit."""
-import requests
 
+import requests
 
 def number_of_subscribers(subreddit):
     """Return the total number of subscribers on a given subreddit."""
