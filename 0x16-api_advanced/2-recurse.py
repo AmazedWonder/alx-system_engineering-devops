@@ -7,7 +7,6 @@ subreddit
 """
 import requests
 
-
 def recurse(subreddit, hot_list=[], after="", count=0):
     """Return a list of titlesd of all hot post on a given subreddit recursively"""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
@@ -33,4 +32,3 @@ def recurse(subreddit, hot_list=[], after="", count=0):
     if after is not None:
         return recurse(subreddit, hot_list, after, count)
     return hot_list
-
