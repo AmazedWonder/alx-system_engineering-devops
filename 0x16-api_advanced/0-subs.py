@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Function queries subscribers on a given Reddit subreddit."""
-
 import requests
 
 def number_of_subscribers(subreddit):
@@ -14,4 +13,3 @@ def number_of_subscribers(subreddit):
         return 0
     results = response.json().get("data")
     return results.get("subscribers")
-
