@@ -11,7 +11,14 @@ def number_of_subscribers(subreddit):
                      (by /u/Comfortable-Love3395)"
     }
     response = requests.get(url, headers=headers, allow_redirects=False)
+
     if response.status_code == 404:
-        return 0
+        return "0"
+
     results = response.json().get("data")
-    return results.get("subscribers")
+    subscribers = results.get("subscribers")
+
+    if subscribers is not None:
+        return (subscribers)
+    else:
+        return "OK"
