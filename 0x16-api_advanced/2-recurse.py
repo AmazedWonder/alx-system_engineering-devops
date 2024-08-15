@@ -7,11 +7,14 @@ subreddit
 """
 import requests
 
+
 def recurse(subreddit, hot_list=[], after="", count=0):
-    """Return a list of titlesd of all hot post on a given subreddit recursively"""
+    """Return a list of titlesd of all hot post on a given
+       subreddit recursively"""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {
-        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/Comfortable-Love3395)"
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 \
+                    (by /u/Comfortable-Love3395)"
     }
     params = {
         "after": after,
