@@ -64,6 +64,26 @@ some_page.html                                                                  
 File transfer complete.
 wonder@DESKTOP-4BORK3J:~/0x0C-web_server$
 
+Exmple 3(first terminal in ubuntu sys):
+
+wonder@DESKTOP-4BORK3J:~/alx-system_engineering-devops/0x0C-web_server$ cat dummy
+Dummy File
+wonder@DESKTOP-4BORK3J:~/alx-system_engineering-devops/0x0C-web_server$ scp dummy ubuntu@ip-address:/home/ubuntu
+dummy                                                                                 100%   11     0.1KB/s   00:00
+wonder@DESKTOP-4BORK3J:~/alx-system_engineering-devops/0x0C-web_server$ scp -i ~/.ssh/id_rsa some_page.html ubuntu@ip-address:/home/ubuntu
+
+some_page.html                                                                        100%    0     0.0KB/s   00:00
+wonder@DESKTOP-4BORK3J:~/alx-system_engineering-devops/0x0C-web_server$
+
+Exmple 3(second terminal in ubuntu sys):
+
+wonder@DESKTOP-4BORK3J:~/alx-system_engineering-devops/0x0C-web_server$ ssh ubuntu@ip-address
+ubuntu@404606-web-01:~$ ls
+dummy
+ubuntu@404606-web-01:~$ ls
+dummy  some_page.html
+
+
 1. Install nginx web server
 [-y on apt-get command](https://intranet.alxswe.com/rltoken/KJiFZ4yJyTGp_cv3DYQLaQ)
 
