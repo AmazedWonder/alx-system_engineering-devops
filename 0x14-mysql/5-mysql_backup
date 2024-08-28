@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Backup and compress all MySQL databases
+
+# Variables
+day=$(date +"%d")
+month=$(date +"%m")
+year=$(date +"%Y")
+file_name="$day-$month-$year.tar.gz"
+
+# Prompt for MySQL root password securely
+read -sp "Enter MySQL root password: " db_password
+echo ""
+
+# Perform the backup
+mysqldump --all-databases -u root --password="$db_password" > backup.sql
+
+# Check if the mysqldump command was successful
+if [ $? -eq 0 ]; then
+    # Compress the SQL dump file
+    tar -czvf "$file_name" backup.sql
+    
+    # Remove the uncompressed SQL dump file
+    # rm backup.sql
+    
+    echo "Backup and compression successful. File saved as $file_name"
+else
+    echo "Backup failed. Please check your credentials and try again."
+fi
